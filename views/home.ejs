@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>
+    <%= title %>
+   </title>
+   <link rel="stylesheet" href="/css/home.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-vSXXFy4sDRUgejVYYEih8tV9zhPFF2Gji2vN9vCwe5yljjx1HRkVPabtA8yqGqvi" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+   
+</head>
+<body>
+    <div id="container_one">
+    <h1 id="heading" > MY TO-DO LIST</h1>
+
+    
+
+    <form class="contact_form" action="/create-list" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+           <b><label for="name">DESCRIPTION:</label></b>
+            <input type="text" id="name" name="name" placeholder=" TYPE DESCRIPTION" required>
+          </div>
+          <div class="form-group">
+            <b><label for="listing_type" placeholder="CHOOSE A CATEGORY">CATEGORY:</label></b>
+            <select id="listing_type" name="listing_type">
+              <option value="personal">Personal</option>
+              <option value="Work">Work</option>
+              <option value="College">College</option>
+              <option value="Travelling">Travelling</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <b><label for="due_date">DUE DATE:</label></b>
+            <input type="date" id="due_date" name="due_date" required>
+          </div>
+          <div class="form-group">
+            <button type="submit"><b>ADD TASK</b></button>
+          </div>
+            
+          <div class="form-group">
+            <button id="delete-button"><i class="ri-calendar-close-line"></i></button>
+          </div>
+         
+        </div>
+      </form>
+
+      
+      
+    <div id="container_list">
+        <ul>
+            <% for(let i of todo_list){%>
+                
+                <li id=<%=  i._id%> class="contact">
+             <div  class="details">
+               <p><b><%= i.name%></b> </p>
+               <p><%= i.listing_type %> </p>
+               <p> <%= i.due_date %></p>
+
+                </div>
+                <div class="del_btn">
+                    
+                    <input  id=<%=  i._id%> type="checkbox"  class="checkbox-item">
+                     
+                   </div>   
+               
+                </li>
+                
+                <%}%>
+        </ul>
+    </div>
+    
+    <script src="/js/home.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    </div>
+</body>
+</html>
