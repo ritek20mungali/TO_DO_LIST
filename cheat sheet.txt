@@ -1,0 +1,7 @@
+git config --global user.name Ritek
+git init
+got add .
+git commit -m "initial commit"
+git status
+git remote add origin (paste shh or http link)
+git push origin main/master
